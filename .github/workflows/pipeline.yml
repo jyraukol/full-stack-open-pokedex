@@ -24,3 +24,5 @@ jobs:
           heroku_app_name: "jyrde-pokedex" #Must be unique in Heroku
           heroku_email: "jyri.raukola@vincit.fi"
           healthcheck: "https://jyrde-pokedex.herokuapp.com/health"
+          checkstring: "ok"
+          rollbackonhealthcheckfailed: true
