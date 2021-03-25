@@ -4,7 +4,7 @@ on:
     branches:
       - master
   pull_request:
-    branches: [main]
+    branches: [master]
     types: [opened, synchronize]
 
 jobs:
@@ -22,6 +22,7 @@ jobs:
       - name: test
         run: npm run test
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        if: ${{ github.event_name == 'push' }}
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "jyrde-pokedex" #Must be unique in Heroku
